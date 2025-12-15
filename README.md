@@ -117,19 +117,3 @@ python main.py --song "Blinding Lights"
 
 # Search by dataset index
 python main.py --index 0
-
-# Search by Spotify track ID
-python main.py --track_id 5SuOikwiRyPMVoIQDJUgSV
-Options
---track_id <id>      Spotify track ID (exact match)
---song <name>        Track name (fuzzy matching)
---artist <name>      Artist name (fuzzy matching)
---index <number>     Dataset row index
---data <path>        Path to dataset CSV (default: data/dataset.csv)
---model_path <path>  Path to hybrid ML model (default: hybrid_model.pkl)
---train_model        Force retrain the hybrid ML model
---no_eval            Skip evaluation metrics
-Example Output
-License
-This project is for educational purposes as part of UVA CS 4774.
->>>>>>> 2adf59f06f06e40a623ad4a9818e986617149667
