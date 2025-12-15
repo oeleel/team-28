@@ -21,33 +21,33 @@
 
 ### Basic Usage
 
-The main script is `main.py`. You can search for songs using multiple methods:
+The main script is `src/main.py`. Run from the project root directory:
 
 ### 1. Search by Track ID (Exact Match)
 ```bash
-python main.py --track_id 5SuOikwiRyPMVoIQDJUgSV
+python src/main.py --track_id 5SuOikwiRyPMVoIQDJUgSV
 ```
 
 ### 2. Search by Song Name and Artist (Recommended)
 ```bash
-python main.py --song "Strobe" --artist "deadmau5"
+python src/main.py --song "Strobe" --artist "deadmau5"
 ```
 
 ### 3. Search by Song Name Only (Fuzzy Matching)
 ```bash
-python main.py --song "Strobe"
+python src/main.py --song "Strobe"
 ```
 If multiple matches are found, you'll be prompted to select one.
 
 ### 4. Search by Artist Only
 ```bash
-python main.py --artist "deadmau5"
+python src/main.py --artist "deadmau5"
 ```
 This will show a list of songs by that artist for you to choose from.
 
 ### 5. Search by Dataset Index (For Testing)
 ```bash
-python main.py --index 0
+python src/main.py --index 0
 ```
 
 ## Command-Line Options
@@ -120,7 +120,7 @@ Make sure the dataset file exists at `data/dataset.csv`
 ### Model training takes too long
 - The first run trains the model (2-5 minutes)
 - Subsequent runs use the saved model (much faster)
-- You can reduce training samples in `model_hybrid_ml.py` (line with `n_samples=10000`)
+- You can reduce training samples in `src/model_hybrid_ml.py` (line with `n_samples=10000`)
 
 ### No recommendations found
 - Try a different song

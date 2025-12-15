@@ -8,16 +8,20 @@ import numpy as np
 from utils import key_to_camelot, get_compatible_keys
 
 
-def load_dataset(filepath='data/dataset.csv'):
+def load_dataset(filepath=None):
     """
     Load the Spotify dataset from CSV file.
     
     Args:
-        filepath: Path to the dataset CSV file
+        filepath: Path to the dataset CSV file (default: ../data/dataset.csv)
     
     Returns:
         DataFrame with loaded data
     """
+    if filepath is None:
+        from pathlib import Path
+        base_path = Path(__file__).parent.parent
+        filepath = str(base_path / 'data' / 'dataset.csv')
     print(f"Loading dataset from {filepath}...")
     df = pd.read_csv(filepath)
     print(f"Loaded {len(df)} tracks")
@@ -104,16 +108,20 @@ def normalize_audio_features(dataset):
     return dataset
 
 
-def preprocess_dataset(filepath='data/dataset.csv'):
+def preprocess_dataset(filepath=None):
     """
     Complete preprocessing pipeline: load, convert keys, add compatible keys, normalize.
     
     Args:
-        filepath: Path to the dataset CSV file
+        filepath: Path to the dataset CSV file (default: ../data/dataset.csv)
     
     Returns:
         Preprocessed DataFrame ready for recommendation models
     """
+    if filepath is None:
+        from pathlib import Path
+        base_path = Path(__file__).parent.parent
+        filepath = str(base_path / 'data' / 'dataset.csv')
     # Load dataset
     df = load_dataset(filepath)
     

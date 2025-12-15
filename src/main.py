@@ -7,6 +7,12 @@ import argparse
 import pandas as pd
 import time
 import os
+import sys
+from pathlib import Path
+
+# Add src directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent))
+
 from data_preprocessing import preprocess_dataset
 from model_rule_based import recommend_rule_based
 from model_audio_similarity import recommend_audio_similarity
@@ -151,9 +157,11 @@ Examples:
     parser.add_argument('--song', type=str, help='Track name')
     parser.add_argument('--artist', type=str, help='Artist name')
     parser.add_argument('--index', type=int, help='Dataset row index')
-    parser.add_argument('--data', type=str, default='data/dataset.csv',
+    # Determine base path (project root)
+    base_path = Path(__file__).parent.parent
+    parser.add_argument('--data', type=str, default=str(base_path / 'data' / 'dataset.csv'),
                        help='Path to dataset CSV file')
-    parser.add_argument('--model_path', type=str, default='hybrid_model.pkl',
+    parser.add_argument('--model_path', type=str, default=str(base_path / 'hybrid_model.pkl'),
                        help='Path to save/load hybrid ML model')
     parser.add_argument('--train_model', action='store_true',
                        help='Force retrain hybrid ML model')
